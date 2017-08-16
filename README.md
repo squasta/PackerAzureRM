@@ -133,13 +133,13 @@ The basic steps performed by Packer to create a Linux image build are:
 6- Delete the temporary VM's OS disk.
 
 The basic steps performed by Packer to create a Windows image build are:
-1- Create a resource group.
-2- Validate and deploy a KeyVault template.
-3- Validate and deploy a VM template.
-4- Execute provision - defined by the user; typically shell commands.
-5- Power off and capture the VM.
-6- Delete the resource group.
-7- Delete the temporary VM's OS disk.
+1. Create a resource group.
+1. Validate and deploy a KeyVault template.
+1. Validate and deploy a VM template.
+1. Execute provision - defined by the user; typically shell commands.
+1. Power off and capture the VM.
+1. Delete the resource group.
+1. Delete the temporary VM's OS disk.
 
 The output from the Packer build process is a virtual hard disk (VHD) in the specified storage account or an image disk (Azure Managed Disk) depending on your choice in Packer's JSON file. Packer also generate an ARM Template file in JSON.
 
@@ -148,21 +148,21 @@ Etape 6 : Faire construire l'image dans Azure par Packer
 Pour cela on va utiliser l'option build : packer build nomdufichierjsonpourPacker.json
 
 Les étapes basiques effectuée par Packer suite à l'exécution de cette commande sont pour une image Linux :
-1- Création d'un ressource group
-2- Validation et déploiement d'un modèle de VM
-3- Exécution du provisionnement de la VM (typiquement des commandes shell)
-4- Arrêt et capture de la VM
-5- Suppression du ressource group créé en 1
-6- Suppression du disque OS de la VM créée en 2
+1. Création d'un ressource group
+1. Validation et déploiement d'un modèle de VM
+1. Exécution du provisionnement de la VM (typiquement des commandes shell)
+1. Arrêt et capture de la VM
+1. Suppression du ressource group créé en 1
+1. Suppression du disque OS de la VM créée en 2
 
 Les étapes basiques effectuée par Packer suite à l'exécution de cette commande sont pour une image Windows :
-1- Création d'un ressource group
-2- Validation et déploiement d'un modèle Azure KeyVault
-3- Validation et déploiement d'un modèle de VM
-4- Exécution du provisionnement de la VM (typiquement des commandes shell)
-5- Arrêt et capture de la VM
-6- Suppression du ressource group créé en 1
-7- Suppression du disque OS de la VM créée en 2
+1. Création d'un ressource group
+1. Validation et déploiement d'un modèle Azure KeyVault
+1. Validation et déploiement d'un modèle de VM
+1. Exécution du provisionnement de la VM (typiquement des commandes shell)
+1. Arrêt et capture de la VM
+1. Suppression du ressource group créé en 1
+1. Suppression du disque OS de la VM créée en 2
 
 Le résultat du processus de build de Packer est un disque dur virtuel (VHD) dans le compte de stockage spécifié ou une image (dans le cas d'utilisation d'un disque managé) en fonction du choix dans le fichier JSON Packer. Packer génère aussi un fichier de modèle ARM en JSON.
 
@@ -183,32 +183,32 @@ Exécuter le script ARMdeploy.ps1
 Global Summary 
 
 The following step must be follow to create a custom image in Azure:
-1- Download and Install Terraform & Packer
-2- in a folder, copy and customize .tf file, Packer-XXXXXX.json, fichierparametres.parameters.json, ARMDeploy.ps1
-3- Execute Terraform to build resource group and Azure resources (Nic, VM, Storage...): Terraform apply
-4- Validate Packer package. Example: packer validate Packer-VMRHEL73StanAzureCustom.json
-5- Build Packer package. Example: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
-6- Download ARM JSON file created by Packer and renameit. Example: ARM-VMRHEL73StanAzureCustom.json
-7- Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command): fichierparametres.parameters.json
-8- Execute Powershell script:  .\ARMDeploy.ps1
+1. Download and Install Terraform & Packer
+1. in a folder, copy and customize .tf file, Packer-XXXXXX.json, fichierparametres.parameters.json, ARMDeploy.ps1
+1. Execute Terraform to build resource group and Azure resources (Nic, VM, Storage...): Terraform apply
+1. Validate Packer package. Example: packer validate Packer-VMRHEL73StanAzureCustom.json
+1. Build Packer package. Example: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
+1. Download ARM JSON file created by Packer and renameit. Example: ARM-VMRHEL73StanAzureCustom.json
+1. Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command): fichierparametres.parameters.json
+1. Execute Powershell script:  .\ARMDeploy.ps1
 
 Follow these steps to destroy and clean you environnment:
-1- Delete VM Generated from Packer image
-2- Terraform Destroy
+1. Delete VM Generated from Packer image
+1. Terraform Destroy
 
 
 Résumé Global :
 
 En résumé les étapes à suivre pour créer une image personnalisée dans Azure :
-1- Télécharger et installer Terraform et Packer
-2- Dans un répertoire, copier et personnaliser les fichiers .tf, le fichier Packer-XXXXX.json, ficierparametres.parameters.json, ARMDeploy.ps1
-3- Lancer Terraform pour construire ressource group et créer les ressources nécesssaires (Nic, VM, Storage...) : Terraform apply
-4- Valider le package Packer. Exemple : packer validate Packer-VMRHEL73StanAzureCustom.json
-5- Builder le package Packer. Exemple: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
-6- Télécharger le modèle ARM JSON généré par Packer et le renommer ARM-VMRHEL73StanAzureCustom.json
-7- Modifier le fichier parameters.json avec l'ID de la NIC créée par Terraform (visible via Terraform output) : fichierparametres.parameters.json
-8- exécuter le script Powershell .\ARMDeploy.ps1
+1. Télécharger et installer Terraform et Packer
+1. Dans un répertoire, copier et personnaliser les fichiers .tf, le fichier Packer-XXXXX.json, ficierparametres.parameters.json, ARMDeploy.ps1
+1. Lancer Terraform pour construire ressource group et créer les ressources nécesssaires (Nic, VM, Storage...) : Terraform apply
+1. Valider le package Packer. Exemple : packer validate Packer-VMRHEL73StanAzureCustom.json
+1. Builder le package Packer. Exemple: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
+1. Télécharger le modèle ARM JSON généré par Packer et le renommer ARM-VMRHEL73StanAzureCustom.json
+1. Modifier le fichier parameters.json avec l'ID de la NIC créée par Terraform (visible via Terraform output) : fichierparametres.parameters.json
+1. exécuter le script Powershell .\ARMDeploy.ps1
 
 En résumé les étapes à suivre pour nettoyer votre environnement :
-1- Supprimer la VM créée depuis l'image générée
-2- Terraform Destroy
+1. Supprimer la VM créée depuis l'image générée
+1. Terraform Destroy
