@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "stan"
+    },
+    "vmName": {
+      "value": "stanvmtest1"
+    },
+    "vmSize": {
+      "value": "Standard_D2_v2"
+    },
+    "adminPassword": {
+      "value": "A$trongPasszord42"
+    },
+    "networkInterfaceId": {
+      "value": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RG-DeploiementPacker1/providers/Microsoft.Network/networkInterfaces/NIC1-PackerStan1"
+    }
+  }
+}
