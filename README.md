@@ -8,6 +8,7 @@ Packer est un outil Open Source permettant de créer des images de machines virt
 The purpose of this repositary is to help you to start using Packer to build your custom VM images on Microsoft Azure Cloud.
 
 L'objectif de ce dépôt est de vous aider à commencer d'utiliser Packer pour construire des images de machines virtuelles personnalisées pour le Cloud Microsoft Azure.
+
 --------------------------------------------------------------------------------------------------------
 
 Step 1 : Download and install Packer
@@ -44,6 +45,12 @@ Packer needs :
 - a Storage Account (if you want the final image in a storage account. Not necessary for managed disk)
 
 You can create these components using Web Portal, Azure PowerShell, Azure CLI, an ARM Template or Terraform (it's my choice here.)
+
+3 Terraform File are available here :
+- 1-ConnexionAzure.tf : contains SPN informations to connect Terraform to Microsoft Azure. You need to modify this file with your SPN info.
+- 
+
+
 
 Etape 3 : créer les éléments d'infrastructure dans Azure nécessaire à Packer pour créer sa VM lors de la phase de Build
 Packer a besoin de :
