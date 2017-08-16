@@ -85,10 +85,9 @@ All Packer-name.json files in this repo are example you can use and adapt.
 /!\ Attention : there are difference between a JSON for a Linux VM and a JSON for a Windows VM: for Windows VM you need to provide the SPN ObjectID 
 ==> To obtain this ObjectID, use :
 - the following Powershell command with SPN name : Get-AzureRmADServicePrincipal -SearchString "NameofyourSPN"
-- or the Azure CLI 2.0 command (Thanks to Etienne Deneuve who provides me this command):
+- or the Azure CLI 2.0 command (Thanks to **Etienne Deneuve** who provides me this command):
 az ad sp list --query "[?displayName=='NameofyourSPN'].{ name: displayName, objectId: objectId }"
-- To check the name of a SPN with an ObjectID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- here objectid of Service Principal Name
-Note : the az command can take many minutes to provide a result, depending on the size of your Azure AD. PowerShell command is really quicker (filtering is done on server side)
+- To check the name of a SPN with an ObjectID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- here objectid of Service Principal Name. Note : the az command can take many minutes to provide a result, depending on the size of your Azure AD. PowerShell command is really quicker (filtering is done on server side)
 
 
 **Etape 4 : Créer un fichier JSON pour Packer**
@@ -105,9 +104,9 @@ Attention à ne pas oublier de personnaliser ces fichiers avec vos informations 
 Note importante : parmi les différences entre un JSON pour créer une VM Linux et un JSON pour créer une image Windows, il y a la nécessiter de fournir pour l'image Windows l'ObjectID du SPN (Service Principal Name)
 ==> Pour obtenir cet ObjectID, utiliser :
 - la commande Powershell suivante avec le nom du SPN : Get-AzureRmADServicePrincipal -SearchString "NameofyourSPN"
-- ou la commande az suivante (Merci à Etienne Deneuve qui en est l'auteur):
+- ou la commande az suivante (Merci à **Etienne Deneuve** qui en est l'auteur):
 az ad sp list --query "[?displayName=='NameofyourSPN'].{ name: displayName, objectId: objectId }"
-- Pour vérifier le nom d'un SPN avec un ID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- ici l'objectid du ServicePrincipal
+- Pour vérifier le nom d'un SPN avec un ID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- ici l'objectid du ServicePrincipal. Attention l'exécution de la commande az peut prendre beaucoup beaucoup de temps (plusieurs minutes voire plus) en fonction de la taille de l'Azure Active Directory. La commande PowerShell est plus optimisée car le filtrage est fait côté serveur.
 
 ---------------------------------------------------------------------------------------------------------
 
