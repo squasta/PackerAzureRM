@@ -35,7 +35,7 @@ J'ai documenté la création de ce SPN dans un article en français ici : https:
 
 ---------------------------------------------------------------------------------------------------------
 
-Step 3 : Create Azure Infrastructure components that Packet needs to create a VM during the build Phase
+Step 3 : Create Azure Infrastructure components that Packet needs to create a VM during the build Phase then for testing a deployment of the image
 Packer needs : 
 - a resource group
 - an Azure VNet
@@ -49,11 +49,9 @@ You can create these components using Web Portal, Azure PowerShell, Azure CLI, a
 3 Terraform File are available here :
 - 1-ConnexionAzure.tf : contains SPN informations to connect Terraform to Microsoft Azure. You need to modify this file with your SPN info.
 - 2-RG-StorageAccount.tf : defintion of a Resource Group and an Azure Storage Account
-- 3
+- 3-PrerequisNetworkAzurepourVMdeployeeparPacker.tf : definition of all Azure IaaS component to deploy a VM using the Packer generated VM image
 
-
-
-Etape 3 : créer les éléments d'infrastructure dans Azure nécessaire à Packer pour créer sa VM lors de la phase de Build
+Etape 3 : créer les éléments d'infrastructure dans Azure nécessaires à Packer pour créer sa VM lors de la phase de Build et nécessaire pour tester un déploiement de l'image créée
 Packer a besoin de :
 - un groupe de ressource
 - un VNet Azure
@@ -63,3 +61,9 @@ Packer a besoin de :
 - un compte de stockage Azure (si vous voulez l'image finale dans un compte de stockage. Non nécessaire pour les disques managés)
 
 Il est possible de faire cela via le portail Azure, Azure PowerShell, la ligne de commande azure (az), un modèle ARM ou via Terraform (c'est le choix que j'ai privilégié).
+
+3 fichiers Terraform File sont disponibles ici :
+- 1-ConnexionAzure.tf : contient les informations du SPN permettant à Terraform d'agir sur un abonnement Azure. Vous devez modifier ce fichier avec les informations de votre SPN.
+- 2-RG-StorageAccount.tf : Définition d'un groupe de ressources et d'un compte de stockage Azure.
+- 3-PrerequisNetworkAzurepourVMdeployeeparPacker.tf : définition de toutes les composants IaaS d'Azure pour déployer une VM depuis l'image générée par Packer
+
