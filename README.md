@@ -127,12 +127,12 @@ packer validate nomdufichierjsonpourPacker.json
 Execute the following command : packer build nameofjsonfileforPacker.json
 
 The basic steps performed by Packer to create a Linux image build are:
-1- Create a resource group.
-2- Validate and deploy a VM template.
-3- Execute provision - defined by the user; typically shell commands.
-4- Power off and capture the VM.
-5- Delete the resource group.
-6- Delete the temporary VM's OS disk.
+1. Create a resource group.
+1. Validate and deploy a VM template.
+1. Execute provision - defined by the user; typically shell commands.
+1. Power off and capture the VM.
+1. Delete the resource group.
+1. Delete the temporary VM's OS disk.
 
 The basic steps performed by Packer to create a Windows image build are:
 1. Create a resource group.
