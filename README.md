@@ -21,7 +21,7 @@ Don't forget to put in PATH of your operating system the location of Packer & Te
 **Etape 1 : Télécharger et installer Packer & Terraform**
 Les binaires de Packer sont disponibles ici : https://www.packer.io/downloads.html
 Les binaires de Terraform sont disponibles ici : https://www.terraform.io/downloads.html
-Ne pas oublier de mettre dans le PATH de votre système d'exploitation le chemin où se trouve Packer et Terraform
+Ne pas oublier de mettre dans le PATH de votre système d'exploitation le chemin où se trouvent Packer et Terraform
 
 ---------------------------------------------------------------------------------------------------------
 
