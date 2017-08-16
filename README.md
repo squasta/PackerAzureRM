@@ -9,6 +9,8 @@ The purpose of this repositary is to help you to start using Packer and Terrafor
 
 L'objectif de ce dépôt est de vous aider à commencer d'utiliser Packer et Terraform pour construire des images de machines virtuelles personnalisées pour le Cloud Microsoft Azure.
 
+![alt text](https://github.com/squasta/PackerAzureRM/blob/master/AzurePackerTerraform.PNG)
+
 --------------------------------------------------------------------------------------------------------
 
 **Step 1 : Download and install Packer & Terraform**
