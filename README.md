@@ -48,7 +48,8 @@ You can create these components using Web Portal, Azure PowerShell, Azure CLI, a
 
 3 Terraform File are available here :
 - 1-ConnexionAzure.tf : contains SPN informations to connect Terraform to Microsoft Azure. You need to modify this file with your SPN info.
-- 
+- 2-RG-StorageAccount.tf : defintion of a Resource Group and an Azure Storage Account
+- 3
 
 
 
