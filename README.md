@@ -179,7 +179,7 @@ Télécharger et personnaliser le script PowerShell ARMdeploy.ps1, mettre les bo
 Exécuter le script ARMdeploy.ps1
 
 
-============================================
+---------------------------------------------------------------------------------------------------------
 Global Summary 
 
 The following step must be follow to create a custom image in Azure:
