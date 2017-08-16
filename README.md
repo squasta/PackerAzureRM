@@ -87,7 +87,7 @@ All Packer-name.json files in this repo are example you can use and adapt.
 - the following Powershell command with SPN name : Get-AzureRmADServicePrincipal -SearchString "NameofyourSPN"
 - or the Azure CLI 2.0 command (Thanks to Etienne Deneuve who provides me this command):
 az ad sp list --query "[?displayName=='NameofyourSPN'].{ name: displayName, objectId: objectId }"
-To check the name of a SPN with an ObjectID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- ici l'objectid du ServicePrincipal
+- To check the name of a SPN with an ObjectID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- here objectid of Service Principal Name
 Note : the az command can take many minutes to provide a result, depending on the size of your Azure AD. PowerShell command is really quicker (filtering is done on server side)
 
 
@@ -107,7 +107,7 @@ Note importante : parmi les différences entre un JSON pour créer une VM Linux 
 - la commande Powershell suivante avec le nom du SPN : Get-AzureRmADServicePrincipal -SearchString "NameofyourSPN"
 - ou la commande az suivante (Merci à Etienne Deneuve qui en est l'auteur):
 az ad sp list --query "[?displayName=='NameofyourSPN'].{ name: displayName, objectId: objectId }"
-Pour vérifier le nom d'un SPN avec un ID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- ici l'objectid du ServicePrincipal
+- Pour vérifier le nom d'un SPN avec un ID : az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX  <-- ici l'objectid du ServicePrincipal
 
 ---------------------------------------------------------------------------------------------------------
 
