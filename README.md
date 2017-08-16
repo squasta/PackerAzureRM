@@ -11,33 +11,33 @@ L'objectif de ce dépôt est de vous aider à commencer d'utiliser Packer et Ter
 
 --------------------------------------------------------------------------------------------------------
 
-Step 1 : Download and install Packer & Terraform
+**Step 1 : Download and install Packer & Terraform**
 Packer binaries are available here  : https://www.packer.io/downloads.html
 Terraform binaries are avaible here : https://www.terraform.io/downloads.html
 Don't forget to put in PATH of your operating system the location of Packer & Terraform
 
-Etape 1 : Télécharger et installer Packer & Terraform
+**Etape 1 : Télécharger et installer Packer & Terraform**
 Les binaires de Packer sont disponibles ici : https://www.packer.io/downloads.html
 Les binaires de Terraform sont disponibles ici : https://www.terraform.io/downloads.html
 Ne pas oublier de mettre dans le PATH de votre système d'exploitation le chemin où se trouve Packer et Terraform
 
 ---------------------------------------------------------------------------------------------------------
 
-Step 2 : Prepare Azure prerequisite to connect Packer to Microsoft Azure 
+**Step 2 : Prepare Azure prerequisite to connect Packer to Microsoft Azure** 
 You can connect Packer to Azure using your Azure Credential but it's better (my opinion) to use an Azure Service Principal Name (SPN).
 You need first an Azure Active Directory, then 3 ways to do that : 
 - Use portal to create an Azure Active Directory application and service principal that can access resources : https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal
 - Create an Azure service principal with Azure PowerShell : https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps?view=azurermps-4.2.0
 - Create an Azure service principal with Azure CLI 2.0 : https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json
 
-Etape 2 : Préparer les pré-requis Azure pour connecter Packer à Microsoft Azure
+**Etape 2 : Préparer les pré-requis Azure pour connecter Packer à Microsoft Azure**
 Vous pouvez connecter Packer à Azure en utilisant vos informations de sécurité mais c'est mieux (à mon avis) d'utiliser un Azure Service Principal Name (SPN).
 Cela nécessite l'existence d'un Azure Active Directory
 J'ai documenté la création de ce SPN dans un article en français ici : https://stanislas.io/2017/01/02/modeliser-deployer-et-gerer-des-ressources-azure-avec-terraform-de-hashicorp/
 
 ---------------------------------------------------------------------------------------------------------
 
-Step 3 : Create Azure Infrastructure components that Packet needs to create a VM during the build Phase then for testing a deployment of the image
+**Step 3 : Create Azure Infrastructure components that Packet needs to create a VM during the build Phase then for testing a deployment of the image**
 Packer needs : 
 - a resource group
 - an Azure VNet
@@ -53,7 +53,7 @@ You can create these components using Web Portal, Azure PowerShell, Azure CLI, a
 - 2-RG-StorageAccount.tf : defintion of a Resource Group and an Azure Storage Account
 - 3-PrerequisNetworkAzurepourVMdeployeeparPacker.tf : definition of all Azure IaaS component to deploy a VM using the Packer generated VM image
 
-Etape 3 : créer les éléments d'infrastructure dans Azure nécessaires à Packer pour créer sa VM lors de la phase de Build et nécessaire pour tester un déploiement de l'image créée
+**Etape 3 : créer les éléments d'infrastructure dans Azure nécessaires à Packer pour créer sa VM lors de la phase de Build et nécessaire pour tester un déploiement de l'image créée**
 Packer a besoin de :
 - un groupe de ressource
 - un VNet Azure
@@ -71,7 +71,7 @@ Il est possible de faire cela via le portail Azure, Azure PowerShell, la ligne d
 
 ---------------------------------------------------------------------------------------------------------
 
-Step 4 : Create a JSON file for Packer
+**Step 4 : Create a JSON file for Packer**
 
 JSON File section used by Packer are the following: 
 - "variables": ["..."],        ==> variables
@@ -89,7 +89,7 @@ To check the name of a SPN with an ObjectID : az ad sp show --id XXXXXXXX-XXXX-X
 Note : the az command can take many minutes to provide a result, depending on the size of your Azure AD. PowerShell command is really quicker (filtering is done on server side)
 
 
-Etape 4 : Créer un fichier JSON pour Packer
+**Etape 4 : Créer un fichier JSON pour Packer**
 
 Les sections d'un fichier JSON utilisé par Packer pour créer une image sont les suivantes : 
 - "variables": ["..."],        ==> variables
@@ -109,7 +109,7 @@ Pour vérifier le nom d'un SPN avec un ID : az ad sp show --id XXXXXXXX-XXXX-XXX
 
 ---------------------------------------------------------------------------------------------------------
 
-Step 5: Validate your JSON fichier with Packer
+**Step 5: Validate your JSON fichier with Packer**
 
 When your Packer's JSON file is ready, validate it with the following Packer command : 
 packer validate nameofjsonfileforPacker.json
@@ -120,7 +120,7 @@ Une fois ce fichier correctement écrit, le valider avec la commande :
 packer validate nomdufichierjsonpourPacker.json
 
 ---------------------------------------------------------------------------------------------------------
-Step 6 : Build your image in Azure with Packer.
+**Step 6 : Build your image in Azure with Packer.**
 
 Execute the following command : packer build nameofjsonfileforPacker.json
 
@@ -143,7 +143,7 @@ The basic steps performed by Packer to create a Windows image build are:
 
 The output from the Packer build process is a virtual hard disk (VHD) in the specified storage account or an image disk (Azure Managed Disk) depending on your choice in Packer's JSON file. Packer also generate an ARM Template file in JSON.
 
-Etape 6 : Faire construire l'image dans Azure par Packer 
+**Etape 6 : Faire construire l'image dans Azure par Packer** 
 
 Pour cela on va utiliser l'option build : packer build nomdufichierjsonpourPacker.json
 
@@ -168,19 +168,19 @@ Le résultat du processus de build de Packer est un disque dur virtuel (VHD) dan
 
 
 ---------------------------------------------------------------------------------------------------------
-Step 7 : Create a new VM in Azure based on the image built by Packer
+**Step 7 : Create a new VM in Azure based on the image built by Packer**
 
 Download and customize ARMdeploy.ps1 with the ARM file generated by Packer
 Execute the ARMdeploy.ps1 script
 
-Etape 7 : Créer une nouvelle VM depuis l'image construite par Packer
+**Etape 7 : Créer une nouvelle VM depuis l'image construite par Packer**
 
 Télécharger et personnaliser le script PowerShell ARMdeploy.ps1, mettre les bons chemins vers le fichier de modèle ARM généré par Packer.
 Exécuter le script ARMdeploy.ps1
 
 
 ---------------------------------------------------------------------------------------------------------
-Global Summary 
+**Global Summary** 
 
 The following step must be follow to create a custom image in Azure:
 1. Download and Install Terraform & Packer
@@ -197,7 +197,7 @@ Follow these steps to destroy and clean you environnment:
 1. Terraform Destroy
 
 
-Résumé Global :
+**Résumé Global :**
 
 En résumé les étapes à suivre pour créer une image personnalisée dans Azure :
 1. Télécharger et installer Terraform et Packer
