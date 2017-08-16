@@ -100,9 +100,9 @@ Les sections d'un fichier JSON utilisé par Packer pour créer une image sont le
 /!\ don't forget to customize builder section with your SPN, ObjectID and Storage Account Name
 
 Tous les fichiers Packer-name.json de ce répertoire sont des exemples que vous pouvez utiliser et adapter.
-/!\ Ne pas outblier de personnaliser ces fichiers avec vos informations : SPN, ObjectID SPN, orget to customize builder section with your SPN, Nom du compte de stockage
+Attention à ne pas oublier de personnaliser ces fichiers avec vos informations : SPN, ObjectID SPN, orget to customize builder section with your SPN, Nom du compte de stockage
 
-/!\ Attention : parmi les différences entre un JSON pour créer une VM Linux et un JSON pour créer une image Windows, il y a la nécessiter de fournir pour l'image Windows l'ObjectID du SPN (Service Principal Name)
+Note importante : parmi les différences entre un JSON pour créer une VM Linux et un JSON pour créer une image Windows, il y a la nécessiter de fournir pour l'image Windows l'ObjectID du SPN (Service Principal Name)
 ==> Pour obtenir cet ObjectID, utiliser :
 - la commande Powershell suivante avec le nom du SPN : Get-AzureRmADServicePrincipal -SearchString "NameofyourSPN"
 - ou la commande az suivante (Merci à Etienne Deneuve qui en est l'auteur):
