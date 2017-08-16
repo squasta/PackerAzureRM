@@ -67,3 +67,22 @@ Il est possible de faire cela via le portail Azure, Azure PowerShell, la ligne d
 - 2-RG-StorageAccount.tf : Définition d'un groupe de ressources et d'un compte de stockage Azure.
 - 3-PrerequisNetworkAzurepourVMdeployeeparPacker.tf : définition de toutes les composants IaaS d'Azure pour déployer une VM depuis l'image générée par Packer
 
+---------------------------------------------------------------------------------------------------------
+
+Step 4 : Create a JSON file for Packer
+
+JSON File section used by Packer are the following: 
+- "variables": ["..."],        ==> variables
+- "builders": ["..."],         ==> provider where image is build, Connection information, VM size to prepare image...
+- "provisioners": ["..."]      ==> add functionnalities, install applications, execute configuration scripts, Configuration Manager tools (Chef, Puppet, Ansible..)...
+
+All Packer-name.json files in this repo are example you can use and adapt.
+
+Etape 4 : Créer un fichier JSON pour Packer
+
+Les sections d'un fichier JSON utilisé par Packer pour créer une image sont les suivantes : 
+- "variables": ["..."],        ==> variables
+- "builders": ["..."],         ==> choix du provider pour lequel l'image est crée, informations de connexion, taille de a VM à créer pour préparer l'image...
+- "provisioners": ["..."]      ==> ajout de fonctionnalités, installation d'applications, déclenchement de scripts de configuration, appel à des outils de Configuration Manager (Chef, Puppet, Ansible..)...
+
+Tous les fichiers Packer-name.json de ce répertoire sont des exemples que vous pouvez utiliser et adapter.
