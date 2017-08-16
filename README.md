@@ -193,7 +193,7 @@ The following step must be follow to create a custom image in Azure:
 1. Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command): fichierparametres.parameters.json
 1. Execute Powershell script:  .\ARMDeploy.ps1
 
-Follow these steps to destroy and clean you environnment:
+Follow these steps to destroy and clean you environment:
 1. Delete VM Generated from Packer image
 1. Terraform Destroy
 
