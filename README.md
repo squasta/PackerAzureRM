@@ -185,14 +185,14 @@ Global Summary
 The following step must be follow to create a custom image in Azure:
 1- Download and Install Terraform & Packer
 2- in a folder, copy and customize .tf file, Packer-XXXXXX.json, fichierparametres.parameters.json, ARMDeploy.ps1
-3- Execute Terraform to build resource group and Azure resources (Nic, VM, Storage...) : Terraform apply
-2- Validate Packer package. Example : packer validate Packer-VMRHEL73StanAzureCustom.json
-3- Build Packer package. Example: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
-4- Download ARM JSON file created by Packer and renameit. Example: ARM-VMRHEL73StanAzureCustom.json
-5- Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command) : fichierparametres.parameters.json
-6- Execute Powershell script:  .\ARMDeploy.ps1
+3- Execute Terraform to build resource group and Azure resources (Nic, VM, Storage...): Terraform apply
+4- Validate Packer package. Example: packer validate Packer-VMRHEL73StanAzureCustom.json
+5- Build Packer package. Example: packer build -color=true Packer-VMRHEL73StanAzureCustom.json
+6- Download ARM JSON file created by Packer and renameit. Example: ARM-VMRHEL73StanAzureCustom.json
+7- Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command): fichierparametres.parameters.json
+8- Execute Powershell script:  .\ARMDeploy.ps1
 
-Follow these steps to destroy and clean you environnment :
+Follow these steps to destroy and clean you environnment:
 1- Delete VM Generated from Packer image
 2- Terraform Destroy
 
