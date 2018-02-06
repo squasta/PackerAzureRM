@@ -131,7 +131,7 @@ The following step must be follow to create a custom image in Azure:
 1. Execute Terraform to build resource group and Azure resources (Nic, VM, Storage...): ``Terraform apply``
 1. Validate Packer package. Example: ``packer validate Packer-VMRHEL73StanAzureCustom.json``
 1. Build Packer package. Example: ``packer build -color=true Packer-VMRHEL73StanAzureCustom.json``
-1. Download ARM JSON file created by Packer and renameit (this ARM template is generated if you are creating an image in a storage account. If you are creating a disk managed image then you have to generate your our arm template or customize one that you get on Azure Quickstart template Github) Example: ARM-VMRHEL73StanAzureCustom.json
+1. Download ARM JSON file created by Packer and rename it. Example: ARM-VMRHEL73StanAzureCustom.json   (This ARM template is generated if you are creating an image in a storage account. If you are creating a disk managed image then you have to generate your our arm template or customize one that you get on Azure Quickstart template Github) 
 1. Modify parameters.JSON file with NIC ID (you can get this ID with Terraform output command): fichierparametres.parameters.json
 1. Execute Powershell script:  ``.\ARMDeploy.ps1``
 
