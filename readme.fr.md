@@ -132,7 +132,7 @@ En résumé les étapes à suivre pour créer et tester le déploiement d'une im
 1. Lancer Terraform pour construire ressource group et créer les ressources nécesssaires (Nic, VM, Storage...) : ``Terraform apply``
 1. Valider le package Packer. Exemple : ``packer validate Packer-VMRHEL73StanAzureCustom.json``
 1. Builder le package Packer. Exemple: ``packer build -color=true Packer-VMRHEL73StanAzureCustom.json``
-1. Télécharger le modèle ARM JSON généré par Packer (c'est un artifact dans le compte de stockage) et le renommer ex: ARM-VMRHEL73StanAzureCustom.json. Attention ce template ARM en JSON n'est généré que si le résultat du build est un vhd dans un compte de stockage. Si vous avez choisi l'option disk géré alors c'est à vous de créer / récupérer puis personnaliser un modèle ARM JSON avec la référence de l'image buildée (vous pouvez trouver des modèles sur le github Azure quickstart template)
+1. Télécharger le modèle ARM JSON généré par Packer (c'est un artifact dans le compte de stockage) et le renommer ex: ARM-VMRHEL73StanAzureCustom.json. Attention ce template ARM en JSON n'est généré que si le résultat du build est un vhd dans un compte de stockage. Si vous avez choisi l'option disque géré alors c'est à vous de créer / récupérer puis personnaliser un modèle ARM JSON avec la référence de l'image buildée (vous pouvez trouver des modèles sur le github Azure quickstart template)
 1. Modifier le fichier parameters.json avec l'ID de la NIC créée par Terraform (visible via Terraform output) : fichierparametres.parameters.json
 1. exécuter le script Powershell ``.\ARMDeploy.ps1``
 
