@@ -17,12 +17,14 @@ resource "azurerm_resource_group" "Terra-RG-Stan" {
 }
 
 # Compte de stockage
+# update version with new required arguments
 # Storage Account
 resource "azurerm_storage_account" "Terra-StorageAccount1-Stan" {
   name                = "storageaccountpackerstan"
   resource_group_name = "${azurerm_resource_group.Terra-RG-Stan.name}"
   location            = "${azurerm_resource_group.Terra-RG-Stan.location}"
-  account_type        = "Standard_LRS"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
 
 # Container dans le compte de stockage
