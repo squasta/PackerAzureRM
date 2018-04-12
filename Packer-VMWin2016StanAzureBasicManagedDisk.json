@@ -20,10 +20,10 @@
     "os_type": "Windows",
     "image_publisher": "MicrosoftWindowsServer",
     "image_offer": "WindowsServer",
-    "image_sku": "2016-Datacenter-smalldisk",
+    "image_sku": "2016-Datacenter",
 
     "managed_image_resource_group_name": "RG-Packer1-Stan",
-    "managed_image_name": "win16stan",
+    "managed_image_name": "win16adminNorthEurope",
 
     "communicator": "winrm",
     "winrm_use_ssl": "true",
@@ -32,12 +32,13 @@
     "winrm_username": "packer",
 
     "azure_tags": {
-      "madewith": "HashiCorp Packer",
-      "Creator" : "Stan"
+      "madewith": "HashiCorp Packer v1.2.2",
+      "Creator" : "Stan",
+      "Usage" : "Poste Windows 16 Admin outils Azure"
     },
 
-    "location": "West Europe",
-    "vm_size": "Standard_D2_v2"
+    "location": "North Europe",
+    "vm_size": "Standard_D4_v2"
   }],
   "provisioners": [
     {
@@ -56,13 +57,13 @@
         ]
     },
     {
-    "type": "powershell",
-    "inline": [
-      "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
-    ]
-  }
+      "type": "powershell",
+      "inline": [
+        "Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask -Verbose",
+        "Add-WindowsFeature Web-Server",
+        "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+        "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
+      ]
+    }
   ]
 }
-
